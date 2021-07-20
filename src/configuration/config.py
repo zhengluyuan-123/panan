@@ -1,12 +1,21 @@
+#!/user/bin/env python
+# -*- coding: utf8 -*-
+"""
+    @Auther:
+    @CreateTime: 2020-8-5 12:32
+    @Describe:
+
+    pip install PyYAML
+    """
+
 import yaml
 import functools
 
 from os import environ
-from os.path import join,split
-
+from os.path import join, split
 from typing import List
-
 from core.resource import ResourceInfo
+
 from core.web.fastapi_custom import FastAPIRouter
 from core.web.flask_custom import FlaskAPIRouter
 from utils import osext
