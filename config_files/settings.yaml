@@ -1,0 +1,10 @@
+# default settings
+# deployed  已部署 company 公司 asset  资产
+
+project-name: kyz-pamqu-realtime-srvs
+url_prefix: /pamqu
+enable_CORS: true
+deployed_company_no: asset
+
+loglevel:
+    root: INFO

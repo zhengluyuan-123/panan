@@ -1,0 +1,2 @@
+  File "E:/python/study_panan/1 tracebackÄ£¿é.py", line 21, in main
+    func1()

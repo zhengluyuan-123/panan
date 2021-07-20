@@ -1,0 +1,80 @@
+db:
+  dev-mysql:
+    enable: true
+    # sqlalchemy-url: mysql+pymysql://user:password@30.23.40.78:3306/pasms
+    db_protocol: mysql+pymysql
+    user: user
+    password: password
+    host: 30.23.40.78
+    port: 3306
+    database: pasms
+    sqlalchemy-pool_size: 50 # -- 在连接池中保持打开的连接数。
+    sqlalchemy-pool_recycle: 200  # 单位s  recycle 回收,-- 此设置使池在经过给定秒数后回收连接。它默认为-1，或者没有超时。例如，设置为3600意味着连接将在一小时后循环使用。
+    sqlalchemy-pool_timeout: 300
+    sqlalchemy-echo: True #如果为真，引擎将记录所有语句以及 repr() 其参数列表的默认日志处理程序，默认为 sys.stdout 用于输出。
+    sqlalchemy-echo_pool: True # -- 如果为true，则连接池将记录信息输出，例如连接失效以及连接回收到默认日志处理程序
+    sqlalchemy-pool_logging-name: sqlalchemy-pool  # -- 字符串标识符，将在sqlalchemy.engine“记录器。默认为对象id的十六进制字符串。
+    sqlalchemy-case_sensitive: True  # 如果为False，在查询获取列名时将不区分大小写。
+    sqlalchemy-encoding: utf8
+
+clery:
+  broker_url: amqp://relay:relayrun@30.23.10.169:5672
+  result_backend: null
+  result_serializer: json
+  result_compression: gzip
+  result_extended: False
+  accept_content: ['json']
+  task_serializer: json
+  task_compression: gzip
+  task_queues: False
+  task_default_queue: pamqu-celery
+  task_create_missing_queues: True
+  task_acks_late: True
+  task_soft_time_limit: 1800
+  task_time_limit: 1805
+  worker_prefetch_multiplier: 1
+
+
+kafka:
+  brokers: [30.99.23.222:2132,]
+
+
+rabbitmq:
+  use_cluster: True
+  nodes: [ 30.99.23.222:2132, 30.99.23.224:2134, 30.99.23.225:2135, ]
+  virtual_host: /
+  user: kyz
+  password: asdad
+
+
+redis:
+  use_cluster: False
+  host: 10.23.123.112
+  port: 7098
+  db: 0
+  encrypted-type: None
+  cyberark:
+    server_url: https//[rd-ccp.paic.com.cn/pidms/rest/pwd/getPassword
+    appid: App_IVS_PAS__9c288c
+    safe: AIM_IVS_PAS
+    folder: root
+    object: redisSecret
+    appkey: 165ce359343cba75
+  password: U1r1^V^l02
+
+
+cache_exp:
+  switch_on: false # switch 开关
+  redis:
+    brinson: 3600 #s
+
+
+cache:
+  use_local_file: true
+
+
+etl:
+  # list of data_ranges: [[YYYY-mm-dd, YYYY-mm-dd], [YYYY-mm-dd, YYYY-mm-dd]]
+  mfa_init_data_range: []
+  mfa_add_time: 08:10:00
+
